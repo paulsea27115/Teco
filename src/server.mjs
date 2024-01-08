@@ -22,9 +22,9 @@ async function startServer(){
   const server = express()
   const upload = multer({ dest: 'static/' })
 
-  server.use(bodyParser.json())
+  server.use(bodyParser.json()) // json 사용 가능
   server.use(bodyParser.urlencoded({ extended: true })) // extended qs 모듈 설치 되어야함
-  server.use(upload.fields([{ name: 'name' }]))
+  server.use(upload.fields([{ name: 'name' }])) 
   server.use('/static', express.static('./src/static'))
 
   server.use(methodOverride('_method'))
@@ -41,6 +41,7 @@ async function startServer(){
   server.set('view engine', 'ejs')
   server.set('views', './src/views')
 
+  // helmet
   server.use(helmet())
 
   server.set("port", process.env.PORT)
@@ -56,6 +57,8 @@ async function startServer(){
     })
   })
   
+
+  // 라우터 연결
   routes.forEach(({ path, method, handler }) => {
     server[method](path, (req, res, next) => {
       handler(req, res)
@@ -68,6 +71,7 @@ async function startServer(){
     })
   })
 
+  // 포트
   await new Promise((resolve)=>{
     server.listen(server.get('port'), () => {
       resolve(undefined)
