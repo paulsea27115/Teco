@@ -7,9 +7,15 @@ import methodOverride from 'method-override'
 import multer from 'multer'
 // import MongoStore from "connect-mongo";
 import * as indexPage from './routers/views/index.mjs';
+import * as loginPage from './routers/views/login.mjs';
+import * as signUpPage from './routers/views/signup.mjs';
 
 const routes = [
-  indexPage
+
+  // page
+  indexPage,
+  loginPage,
+  signUpPage
 ]
 
 async function startServer(){
