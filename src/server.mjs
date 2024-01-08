@@ -30,7 +30,7 @@ async function startServer(){
 
   // view 엔진
   server.set('view engine', 'ejs')
-  server.set('views', './views')
+  server.set('views', './src/views')
 
   server.use(helmet())
 
