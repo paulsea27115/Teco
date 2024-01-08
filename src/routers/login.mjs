@@ -18,6 +18,6 @@ const handler = async (req, res) => {
     req.session._id = user._id.toString()
     
     return res.redirect('/')
-} 
+}
 
 export { path, method, handler }
