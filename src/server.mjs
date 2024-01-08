@@ -24,6 +24,9 @@ async function startServer(){
 
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({ extended: true })) // extended qs 모듈 설치 되어야함
+  server.use(upload.fields([{ name: 'name' }]))
+  server.use('/static', express.static('./src/static'))
+
   server.use(methodOverride('_method'))
   server.set('trust proxy', 1) // trust first proxy
 
