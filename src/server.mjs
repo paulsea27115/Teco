@@ -9,13 +9,15 @@ import multer from 'multer'
 import * as indexPage from './routers/views/index.mjs';
 import * as loginPage from './routers/views/login.mjs';
 import * as signUpPage from './routers/views/signup.mjs';
+import * as boardPage from './routers/views/board.mjs';
 
 const routes = [
 
   // page
   indexPage,
   loginPage,
-  signUpPage
+  signUpPage,
+  boardPage
 ]
 
 async function startServer(){
