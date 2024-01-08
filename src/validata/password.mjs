@@ -1,4 +1,4 @@
-import { checkString } from './string'
+import { checkString } from './string.mjs'
 
 //  Regex = REGular Expression
 const passwordPartRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(){}[\]\-+=~:?><]).{6,20}$/

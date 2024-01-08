@@ -1,5 +1,6 @@
-import User from '../../models/User.mjs'
-import Post from '../../models/Post.mjs'
+import User from '../models/User.mjs'
+import Post from '../models/Post.mjs'
+import { encryptPassword } from '../utils/encryptPassword.mjs'
 
 const path = '/login'
 const method = 'post'

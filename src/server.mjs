@@ -7,12 +7,20 @@ import methodOverride from 'method-override'
 import cors from 'cors';
 import multer from 'multer'
 // import MongoStore from "connect-mongo";
+
+import * as loginPost from './routers/login.mjs'
+import * as signupPost from './routers/signup.mjs'
+
 import * as indexPage from './routers/views/index.mjs';
 import * as loginPage from './routers/views/login.mjs';
 import * as signUpPage from './routers/views/signup.mjs';
 import * as boardPage from './routers/views/board.mjs';
 
+import User from './models/User.mjs'
+
 const routes = [
+  loginPost,
+  signupPost,
 
   // page
   indexPage,
@@ -63,7 +71,7 @@ async function startServer(){
 
   // 라우터 연결
   routes.forEach(({ path, method, handler }) => {
-    server[method](path, cors(),(req, res, next) => {
+    server[method](path, cors(), (req, res, next) => {
       handler(req, res)
         .then(() => {
           next()

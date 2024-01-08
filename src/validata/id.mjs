@@ -1,4 +1,4 @@
-import { checkString } from './string'
+import { checkString } from './string.mjs'
 const idPartRegex = /^[0-9a-zA-Z]{4,20}$/
 
 export function checkId (input) {
