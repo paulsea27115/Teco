@@ -4,6 +4,7 @@ import helmet from 'helmet'; // 서버 보안을 위해
 import bodyParser from "body-parser"; // post body를 읽기 위해
 import session from "express-session"
 import methodOverride from 'method-override'
+import cors from 'cors';
 import multer from 'multer'
 // import MongoStore from "connect-mongo";
 import * as indexPage from './routers/views/index.mjs';
@@ -22,7 +23,7 @@ const routes = [
 
 async function startServer(){
   const server = express()
-  const upload = multer({ dest: 'static/' })
+  const upload = multer({ dest: 'static/' });
 
   server.use(bodyParser.json()) // json 사용 가능
   server.use(bodyParser.urlencoded({ extended: true })) // extended qs 모듈 설치 되어야함
@@ -62,7 +63,7 @@ async function startServer(){
 
   // 라우터 연결
   routes.forEach(({ path, method, handler }) => {
-    server[method](path, (req, res, next) => {
+    server[method](path, cors(),(req, res, next) => {
       handler(req, res)
         .then(() => {
           next()
