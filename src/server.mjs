@@ -10,17 +10,21 @@ import multer from 'multer'
 
 import * as loginPost from './routers/login.mjs'
 import * as signupPost from './routers/signup.mjs'
+import * as getPost from './routers/board/getPost.mjs'
+import * as createPost from './routers/board/createPost.mjs'
 
-import * as indexPage from './routers/views/index.mjs';
-import * as loginPage from './routers/views/login.mjs';
-import * as signUpPage from './routers/views/signup.mjs';
-import * as boardPage from './routers/views/board.mjs';
+import * as indexPage from './routers/views/index.mjs'
+import * as loginPage from './routers/views/login.mjs'
+import * as signUpPage from './routers/views/signup.mjs'
+import * as boardPage from './routers/views/board.mjs'
 
 import User from './models/User.mjs'
 
 const routes = [
   loginPost,
   signupPost,
+  getPost,
+  createPost,
 
   // page
   indexPage,
