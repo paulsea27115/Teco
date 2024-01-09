@@ -5,7 +5,8 @@ const postSchema = new Schema({
     content: { type: String, required: true },
     authorId: { type: String, required: true },
     viewCount: { type: Number, required: true, default: 0 },
-    likeCount: { type: Number, required: true, default: 0 }
+    likeCount: { type: Number, required: true, default: 0 },
+    like_users: [String]
 }, {
     versionKey: false,
     timestamps: {
@@ -13,5 +14,5 @@ const postSchema = new Schema({
         updatedAt: 'updatedAt'
     }
 });
-  
+
 export default model('Post', postSchema)

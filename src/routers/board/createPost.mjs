@@ -1,3 +1,4 @@
+import multer from 'multer'
 import Post from '../../models/Post.mjs'
 import { checkString } from '../../validata/string.mjs'
 
@@ -16,7 +17,7 @@ const handler = async (req, res) => {
   if (!checkString(title)) {
     return res.status(400).json({ // 200이 defualt 값
       errorCode: 'VaildationError',
-      errorMessage: '"title"이 문제가 있습니다.'
+      errorMessage: '"title"에 문제가 있습니다.'
     })
   }
 
