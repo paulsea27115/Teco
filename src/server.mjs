@@ -6,6 +6,8 @@ import session from "express-session"
 import methodOverride from 'method-override'
 import cors from 'cors';
 import multer from 'multer'
+import fs from 'fs'
+import path from 'path'
 // import MongoStore from "connect-mongo";
 
 import * as loginPost from './routers/login.mjs'
@@ -24,7 +26,7 @@ const routes = [
   loginPost,
   signupPost,
   getPost,
-  createPost,
+  // createPost,
 
   // page
   indexPage,
@@ -33,14 +35,32 @@ const routes = [
   boardPage
 ]
 
+try {
+	fs.readdirSync('uploads'); // 폴더 확인
+} catch(err) {
+	console.error('uploads 폴더가 없습니다. 폴더를 생성합니다.');
+  fs.mkdirSync('uploads'); // 폴더 생성
+}
+
 async function startServer(){
   const server = express()
-  const upload = multer({ dest: 'static/' });
-
+  const upload = multer({
+    storage: multer.diskStorage({ // 저장한공간 정보 : 하드디스크에 저장
+        destination(req, file, done) { // 저장 위치
+            done(null, 'uploads/'); // uploads라는 폴더 안에 저장
+        },
+        filename(req, file, done) { // 파일명을 어떤 이름으로 올릴지
+            const ext = path.extname(file.originalname); // 파일의 확장자
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext); // 파일이름 + 날짜 + 확장자 이름으로 저장
+        }
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 } // 5메가로 용량 제한
+  });
+  
   server.use(bodyParser.json()) // json 사용 가능
   server.use(bodyParser.urlencoded({ extended: true })) // extended qs 모듈 설치 되어야함
-  server.use(upload.fields([{ name: 'name' }])) 
   server.use('/static', express.static('./src/static'))
+  server.use('/uploads', express.static('./uploads'));
 
   server.use(methodOverride('_method'))
   server.set('trust proxy', 1) // trust first proxy
@@ -85,6 +105,8 @@ async function startServer(){
         })
     })
   })
+
+  server[createPost.method](createPost.path, upload.single('image'), createPost.handler)
 
   // 포트
   await new Promise((resolve)=>{

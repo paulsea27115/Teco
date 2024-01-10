@@ -1,7 +1,24 @@
-<%- include('header') %>
-<div>
-    <h1>Hello World</h1>
-    <h2>this is board page</h2>
-    <p>this is test page</p>
-</div>
-<%- include('footer') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/board.css">
+</head>
+<body>
+    <div>
+        <h1><%= data.title %></h1>
+        <% if (data.image.data) { %>
+            <img src="/uploads/<%= data.image.data %>" alt="image"> <!-- 수정된 부분 -->
+        <% } %>
+        <h2><%= data.content %></h2>
+        <p><%= data.viewCount %>, <%= data.likeCount %></p>
+        <div>
+            <button>삭제</button>
+            <button>수정</button>
+        </div>
+    </div>
+    <script src="/static/js/board.js"></script>
+</body>
+</html>

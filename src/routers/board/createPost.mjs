@@ -28,11 +28,23 @@ const handler = async (req, res) => {
     })
   }
 
+  // const post = await Post.create({
+  //   title,
+  //   content,
+  //   authorId: req.session._id
+  // })
+
   const post = await Post.create({
-    title,
-    content,
+    title: title,
+    content: content,
+    image: {
+      data: req.file.filename,
+      contentType: 'image/png'
+    },
     authorId: req.session._id
   })
+
+  // Post.save().then(()=>res.send("successfully uploaded")).catch((err)=>{console.log(err)})
 
   return res.json(post)
 }
