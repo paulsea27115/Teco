@@ -23,8 +23,10 @@ const handler = async (req, res) => {
 
     const totalPageCount = await Post.countDocuments()
     const lastPage = Math.ceil(totalPageCount / limit)
-
+    
     const user = await User.findOne({ _id: req.session._id })
+
+    console.log(user)
 
     return res.render('boards/boards', { postList, page, lastPage, user })
 }

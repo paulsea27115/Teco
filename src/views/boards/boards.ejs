@@ -45,9 +45,10 @@
         </ul>
     <% } %>
     <input type="button" value="글쓰기">
-    <div class="create_post">
-        
-    </div>
+    <%- include('write') %>
+    <% if(user === null) {%>
+        <%- include('login') %>
+    <% } %>
     <script src="/static/js/boards.js"></script>
 </body>
 </html>

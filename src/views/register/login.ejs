@@ -2,6 +2,10 @@
 <div>
     <h1>Hello World</h1>
     <h2>this is login page</h2>
-    <p>this is test page</p>
+    <form action="/login" method="post">
+        <input type="text" name="id" placeholder="아이디">
+        <input type="password" name="password" placeholder="비밀번호">
+        <input type="submit" value="login">
+    </form>
 </div>
 <%- include('footer') %>

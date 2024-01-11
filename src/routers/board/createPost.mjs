@@ -2,7 +2,7 @@ import multer from 'multer'
 import Post from '../../models/Post.mjs'
 import { checkString } from '../../validata/string.mjs'
 
-const path = '/board'
+const path = '/boards'
 const method = 'post'
 const handler = async (req, res) => {
   if (req.session._id === undefined) {
@@ -12,8 +12,8 @@ const handler = async (req, res) => {
     })
   }
 
-  const { title, content } = req.body
-
+  const { title, content, category } = req.body
+  console.log(category)
   if (!checkString(title)) {
     return res.status(400).json({ // 200이 defualt 값
       errorCode: 'VaildationError',
@@ -37,6 +37,7 @@ const handler = async (req, res) => {
   const post = await Post.create({
     title: title,
     content: content,
+    category: category,
     image: {
       data: req.file.filename,
       contentType: 'image/png'
@@ -46,7 +47,7 @@ const handler = async (req, res) => {
 
   // Post.save().then(()=>res.send("successfully uploaded")).catch((err)=>{console.log(err)})
 
-  return res.json(post)
+  return res.redirect('/boards')
 }
 
 export { path, method, handler }

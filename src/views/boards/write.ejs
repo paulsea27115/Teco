@@ -1,0 +1,21 @@
+<div class="write">
+    <form action="/boards" method="post" enctype="multipart/form-data">
+        <select name="category" id="category">
+            <option>General</option>
+            <option>Programming</option>
+            <option>Desgin</option>
+        </select>
+        <br>
+
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content"></textarea><br>
+
+        <label for="file">Select image:</label>
+        <input type="file" id="file" name="image"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>

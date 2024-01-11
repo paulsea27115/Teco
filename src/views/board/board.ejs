@@ -9,17 +9,23 @@
 <body>
     <div>
         <h1><%= post.title %></h1>
+        <h3><%= post.category %></h3>
         <% if (post.image.data) { %>
             <img src="/uploads/<%= post.image.data %>" alt="image"> <!-- 수정된 부분 -->
         <% } %>
         <h2><%= post.content %></h2>
-        <p><%= post.viewCount %>, <%= post.likeCount %></p>
-        <div>
-            <a href="/boards/?page=<%= originPage %>"><button class="default-button">돌아가기</button></a>
-            <a href="/board/<%= post._id %>/edit"><button class="default-button">수정</button></a>
-            <a href="#"><button class="default-button">삭제</button></a>
-        </div>
+        <p>조회수: <%= post.viewCount %>, 좋아요: <%= post.likeCount %></p>
+            <div>
+                <a href="/boards/?page=<%= originPage %>"><button class="default-button">돌아가기</button></a>
+                <% if (id === post.authorId) { %>
+                    <a href="/board/<%= post._id %>/edit"><button class="default-button">수정</button></a>
+                    <form action="/board/<%= post._id %>/delete" method="get">
+                        <input type="submit" value="삭제" name="delete">
+                    </form>
+                <% } %>
+            </div>
     </div>
+    
     <script src="/static/js/board.js"></script>
 </body>
 </html>

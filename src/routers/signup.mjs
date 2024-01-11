@@ -53,7 +53,7 @@ const handler = async (req, res) => {
         email
     })
 
-    return res.status(200).json(user)
+    return res.redirect('/boards')
 }
 
 export { path, method, handler }

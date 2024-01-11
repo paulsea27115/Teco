@@ -12,8 +12,9 @@ import path from 'path'
 
 import * as loginPost from './routers/login.mjs'
 import * as signupPost from './routers/signup.mjs'
-import * as getPost from './routers/board/getPost.mjs'
+import * as getPost from './routers/board/getpost.mjs'
 import * as createPost from './routers/board/createPost.mjs'
+import * as deletePost from './routers/board/deletePost.mjs'
 
 import * as indexPage from './routers/views/index.mjs'
 import * as loginPage from './routers/views/login.mjs'
@@ -27,6 +28,7 @@ const routes = [
   loginPost,
   signupPost,
   getPost,
+  deletePost,
   // createPost,
 
   // page
@@ -94,7 +96,6 @@ async function startServer(){
     })
   })
   
-
   // 라우터 연결
   routes.forEach(({ path, method, handler }) => {
     server[method](path, cors(), (req, res, next) => {
@@ -108,6 +109,7 @@ async function startServer(){
     })
   })
 
+  // img 업로드 router
   server[createPost.method](createPost.path, upload.single('image'), createPost.handler)
 
   // 포트
@@ -119,8 +121,9 @@ async function startServer(){
 
   server.on('error', err => {
     console.error(err);
-  });
+  })
 
   console.log('server is Ready!')
+
 }
 export {startServer}

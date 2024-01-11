@@ -7,6 +7,8 @@ const method = 'post'
 const handler = async (req, res) => {
     const { id, password: originalPassword } = req.body
 
+    // console.log(id, originalPassword)
+
     const user = await User.findOne({
         id,
         password: encryptPassword(originalPassword, id)
@@ -18,7 +20,7 @@ const handler = async (req, res) => {
     
     req.session._id = user._id.toString()
     
-    return res.redirect('/')
+    return res.redirect('/boards')
 }
 
 export { path, method, handler }

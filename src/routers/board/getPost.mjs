@@ -17,6 +17,8 @@ const handler = async (req, res) => {
         })
     }
 
+    console.log(post._id, 1)
+
     return res.render(post)
 }
 
