@@ -19,6 +19,7 @@ import * as indexPage from './routers/views/index.mjs'
 import * as loginPage from './routers/views/login.mjs'
 import * as signUpPage from './routers/views/signup.mjs'
 import * as boardPage from './routers/views/board.mjs'
+import * as boardsPage from './routers/views/boards.mjs'
 
 import User from './models/User.mjs'
 
@@ -32,7 +33,8 @@ const routes = [
   indexPage,
   loginPage,
   signUpPage,
-  boardPage
+  boardPage,
+  boardsPage
 ]
 
 try {

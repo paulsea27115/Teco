@@ -8,15 +8,16 @@
 </head>
 <body>
     <div>
-        <h1><%= data.title %></h1>
-        <% if (data.image.data) { %>
-            <img src="/uploads/<%= data.image.data %>" alt="image"> <!-- 수정된 부분 -->
+        <h1><%= post.title %></h1>
+        <% if (post.image.data) { %>
+            <img src="/uploads/<%= post.image.data %>" alt="image"> <!-- 수정된 부분 -->
         <% } %>
-        <h2><%= data.content %></h2>
-        <p><%= data.viewCount %>, <%= data.likeCount %></p>
+        <h2><%= post.content %></h2>
+        <p><%= post.viewCount %>, <%= post.likeCount %></p>
         <div>
-            <button>삭제</button>
-            <button>수정</button>
+            <a href="/boards/?page=<%= originPage %>"><button class="default-button">돌아가기</button></a>
+            <a href="/board/<%= post._id %>/edit"><button class="default-button">수정</button></a>
+            <a href="#"><button class="default-button">삭제</button></a>
         </div>
     </div>
     <script src="/static/js/board.js"></script>

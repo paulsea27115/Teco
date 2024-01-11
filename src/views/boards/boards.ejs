@@ -7,7 +7,47 @@
     <link rel="stylesheet" href="/static/css/boards.css">
 </head>
 <body>
+    <h2>📝 게시글 목록</h2>
+
+    <div style="height: 10px"></div>
     
+    <% if (postList.length === 0) {%>
+    
+        <div class="no-post">
+        <p >첫번째 게시글을 작성해주세요!</p>
+        <div style="height: 10px"></div>
+        <a href="#"><button class="default-button">✏게시글 작성하기</button></a>
+        </div>
+    <% } else { %>
+        <table class="post-list">
+        <tr>
+            <th>좋아요</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>조회수</th>
+            <th>작성일</th>
+        </tr>
+        <% postList.forEach(post=> { %>
+            <tr>
+                <td><%= post.likeCount %></td>
+                <td><%= post.title %></td>
+                <td><a href="/board/<%= post._id %>/view?origin_page=<%= page %>"><%= post.content %></a></td>
+                <td><%= post.viewCount %></td>
+                <td><%= post.createAt.toLocaleDateString() %></td>
+            </tr>
+        <% }) %>
+        </table>
+        <ul class="pagination-wrap middle float">
+        <% const prevPage = (page - 1 < 1) ? 1 : page - 1 %>
+        <% const nextPage = (page + 1 > lastPage) ? lastPage : page + 1 %>
+        <li><a href="/boards/?page=<%= prevPage %>">이전 페이지</a></li>
+        <li><a href="/boards/?page=<%= nextPage %>">다음 페이지</a></li>
+        </ul>
+    <% } %>
+    <input type="button" value="글쓰기">
+    <div class="create_post">
+        
+    </div>
     <script src="/static/js/boards.js"></script>
 </body>
 </html>

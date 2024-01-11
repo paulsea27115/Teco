@@ -17,7 +17,7 @@ const handler = async (req, res) => {
         })
     }
 
-    return res.render('board/board', {data : post})
+    return res.render(post)
 }
 
 export { path, method, handler }
