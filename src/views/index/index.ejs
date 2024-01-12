@@ -1,21 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/css/index.css">
-</head>
-<body>
-<div>
-    <h1>Hello World</h1>
-    <h2>this is index page</h2>
-    <p>this is test page</p>
-    <div>
-        <button><a href="/login">로그인하러가기</a></button>
-        <button><a href="/signup">회원가입 하러가기</a></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tecoomunity</title>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <link rel="stylesheet" href="/static/css/sub.css"/>
+    <link rel="stylesheet" href="/static/css/animaion.css"/>
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+  </head>
+  <body>
+    <div class="noite"></div>
+
+    <div class="constelacao"></div>
+
+    <a href="/">
+      <div class="logo-container">
+        <img class="logo" src="/static/image/logo.png" alt="Logo" />
+      </div>
+    </a>
+
+    <div class="chuvaMeteoro"></div>
+
+    <div class="search-container">
+      <div class="search-box">
+        <div class="search-icon"></div>
+        <div class="search-text">Search</div>
+      </div>
+      <a href="/login">
+        <button class="sign-in-button">Log In</button>
+      </a>
+      <a href="/signup">
+        <button class="sign-up-button">Sign Up</button>
+      </a>
     </div>
-</div>
+
+    <div>
+        <div class="mid_title">
+            Let's talk here
+        </div>
+        <sub class="mid_content">
+            SDH Student's Forum
+        </sub>
+    </div>
+
+    <div class="buble-container">
+      <img class="buble" src="/static/image/buble.png" alt="Bubble" />
+    </div>
+
+    <div class="chuvaMeteoro"></div>
+
+    <div id="large-header" class="large-header">
+      <canvas id="demo-canvas"></canvas>
+    </div>
     <script src="/static/js/index.js"></script>
-</body>
+    <script src="/static/js/mouse.js"></script>
+  </body>
 </html>

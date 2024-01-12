@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>boards</title>
     <link rel="stylesheet" href="/static/css/boards.css">
 </head>
 <body>
+    <a href="/">
+        <div class="logo-container">
+          <img class="logo" src="/static/image/logo.png" alt="Logo" />
+        </div>
+    </a>
+
     <h2>📝 게시글 목록</h2>
 
     <div style="height: 10px"></div>
     
     <% if (postList.length === 0) {%>
-    
         <div class="no-post">
         <p >첫번째 게시글을 작성해주세요!</p>
         <div style="height: 10px"></div>
@@ -44,9 +49,10 @@
         <li><a href="/boards/?page=<%= nextPage %>">다음 페이지</a></li>
         </ul>
     <% } %>
-    <input type="button" value="글쓰기">
-    <%- include('write') %>
-    <% if(user === null) {%>
+    <% if(user !== null) {%>
+        <input type="button" value="글쓰기" class="write_btn">
+        <%- include('write') %>
+    <% } else { %>
         <%- include('login') %>
     <% } %>
     <script src="/static/js/boards.js"></script>

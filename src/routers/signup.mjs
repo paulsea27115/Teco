@@ -53,7 +53,7 @@ const handler = async (req, res) => {
         email
     })
 
-    return res.redirect('/boards')
+    return res.redirect('/login')
 }
 
 export { path, method, handler }

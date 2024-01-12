@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>board</title>
     <link rel="stylesheet" href="/static/css/board.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
         <% if (post.image.data) { %>
             <img src="/uploads/<%= post.image.data %>" alt="image"> <!-- 수정된 부분 -->
         <% } %>
-        <h2><%= post.content %></h2>
+        <h5><%= post.content %></h5>
         <p>조회수: <%= post.viewCount %>, 좋아요: <%= post.likeCount %></p>
             <div>
                 <a href="/boards/?page=<%= originPage %>"><button class="default-button">돌아가기</button></a>

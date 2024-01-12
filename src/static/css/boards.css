@@ -1,0 +1,16 @@
+.write {
+    display: none;
+}
+.write.on {
+    display: block;
+}
+.logo-container {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.logo {
+    width: 70x;
+    height: 100px;
+}

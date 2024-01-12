@@ -1,11 +1,23 @@
 <%- include('header') %>
-<div>
-    <h1>Hello World</h1>
-    <h2>this is login page</h2>
+<div class="login-box">
+    <a href="/">
+      <h2>Login</h2>
+    </a>
     <form action="/login" method="post">
-        <input type="text" name="id" placeholder="아이디">
-        <input type="password" name="password" placeholder="비밀번호">
-        <input type="submit" value="login">
+      <div class="user-box"> <input type="text" name="id" required="">
+        <label>Id</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" required="">
+        <label>Password</label>
+      </div>
+      <a href="/boards">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <input type="submit" value="Log in">
+      </a>
     </form>
-</div>
+  </div>
 <%- include('footer') %>

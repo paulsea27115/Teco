@@ -86,6 +86,7 @@ async function startServer(){
   server.set("port", process.env.PORT)
 
   server.use((req, res, next)=>{
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://unpkg.com");
     if (req.session._id === undefined) return next()
     User.findOne({_id: req.session._id})
     .then(user=>{
