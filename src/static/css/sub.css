@@ -1,0 +1,76 @@
+.buble-container {
+    display: flex;
+    align-content: flex-end;
+    position: fixed;
+    bottom: 0rem;
+    right: 0rem;
+  }
+  
+  .buble {
+    width: auto;
+    height: 34.375rem;
+    opacity: 0.5;
+  }
+  
+  .search-container {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+  }
+  
+  .search-box {
+    background-color: #555555;
+    margin-right: 0.625rem;
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+  }
+  
+  .search-icon {
+    width: 1.875rem;
+    height: 1.875rem;
+    background-image: url('/static/image/finder.png');
+    background-size: cover;
+    margin-right: 15.625rem;
+  }
+  
+  .search-text {
+    color: #CDCDCD;
+  }
+  
+  .sign-in-button {
+    margin-right: 1.25rem;
+    padding: 0.625rem 0.9375rem;
+    background-color: #555555;
+    border: none;
+    border-radius: 0.3125rem;
+    color: #CDCDCD;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  
+  .sign-up-button {
+    padding: 0.625rem 0.9375rem;
+    background-color: #555555;
+    border: none;
+    border-radius: 0.3125rem;
+    color: #CDCDCD;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  
+  .search-box:focus-within {
+    box-shadow: 0 0 0.625rem rgba(205, 205, 205, 0.8);
+    opacity: 1;
+  }
+  
+  .search-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-size: contain;
+  }
