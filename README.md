@@ -1,1 +1,5 @@
-# 교내 자유주제 해커톤
+# Teco
+- Seoul Digitech community
+
+
+### 교내 해커톤
